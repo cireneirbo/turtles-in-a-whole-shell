@@ -5,7 +5,10 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { apiResponse: "" };
+    this.state = { 
+      apiResponse: "",
+      apiResponseTmnt: ""
+   };
   }
 
   callAPI() {
@@ -14,8 +17,15 @@ class App extends Component {
       .then(res => this.setState({ apiResponse: res }));
   }
 
+  callAPItmnt() {
+    fetch("http://localhost:9000/tmnt")
+      .then(res => res.text())
+      .then(res => this.setState({ apiResponseTmnt: res }));
+  }
+
   componentWillMount() {
     this.callAPI();
+    this.callAPItmnt();
   }
 
   render() {
@@ -25,6 +35,7 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
         </header>
         <p className="App-intro">{this.state.apiResponse}</p>
+        <p className="App-intro">{this.state.apiResponseTmnt}</p>
       </div>
     );
   }
