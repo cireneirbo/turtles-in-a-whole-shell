@@ -1,9 +1,9 @@
 const express = require("express");
 const router = express.Router();
 
-router.get('/', function (req, res, next) {
-  //const file = req.params.file;
-  res.send('/public/images/')
+router.get('/:file', function (req, res, next) {
+  const file = req.params.file;
+  res.sendFile('/public/images/' + file);
   console.log("hi");
 })
 console.log("HIIIII");
