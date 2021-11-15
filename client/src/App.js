@@ -40,5 +40,6 @@ class App extends Component {
     );
   }
 }
-
+ console.log("React front-end app running at: http://localhost:3000");
+ 
 export default App;

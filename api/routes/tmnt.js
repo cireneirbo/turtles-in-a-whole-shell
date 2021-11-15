@@ -6,6 +6,5 @@ router.get('/:file', function (req, res, next) {
   res.sendFile('/public/images/' + file);
   console.log("hi");
 })
-console.log("HIIIII");
 
 module.exports = router;

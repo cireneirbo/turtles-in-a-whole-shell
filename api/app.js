@@ -44,4 +44,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
+console.log("Server-side API is listening on: port:9000");
+
 module.exports = app;
