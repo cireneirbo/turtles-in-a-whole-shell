@@ -11,7 +11,7 @@ export class tmnt extends Component {
   }
 
   callAPItmnt() {
-    fetch("http://localhost:9000/tmnt")
+    fetch("http://localhost:9000/tmnt/tmnt.png")
       .then(res => res.text())
       .then(res => this.setState({ apiResponseTmnt: res }));
   }
@@ -22,11 +22,12 @@ export class tmnt extends Component {
 
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
+      <div className="tmnt">
+        <header className="tmnt-header">
+          
         </header>
-        <p className="App-intro">{this.state.apiResponseTmnt}</p>
+        <p className="tmnt-intro">{this.state.apiResponseTmnt}</p>
+        <p>Hi</p>
       </div>
     );
   }

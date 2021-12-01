@@ -3,7 +3,7 @@ const router = express.Router();
 
 router.get('/:file', function (req, res, next) {
   const file = req.params.file;
-  res.sendFile('/public/images/' + file);
+  res.sendFile(process.cwd() + '/public/images/' + file);
   console.log("hi");
 })
 
