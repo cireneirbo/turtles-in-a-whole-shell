@@ -10,6 +10,9 @@ const usersRouter = require('./routes/users');
 const testAPIRouter = require('./routes/testAPI');
 const tmntRouter = require('./routes/tmnt');
 const raphaelRouter = require('./routes/raphael');
+const donatelloRouter = require('./routes/donatello');
+const leonardoRouter = require('./routes/leonardo');
+const michaelangeloRouter = require('./routes/michaelangelo');
 
 const app = express();
 
@@ -29,6 +32,9 @@ app.use('/users', usersRouter);
 app.use('/testAPI', testAPIRouter);
 app.use('/tmnt', tmntRouter);
 app.use('/raphael', raphaelRouter);
+app.use('/donatello', donatelloRouter);
+app.use('/leonardo', leonardoRouter);
+app.use('/michaelangelo', michaelangeloRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
