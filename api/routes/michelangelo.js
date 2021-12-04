@@ -3,9 +3,9 @@ const express = require('express');
 const router = express.Router();
 
 // Require controller modules.
-const michaelangelo_controller = require('../controllers/michaelangeloController');
+const michelangelo_controller = require('../controllers/michelangeloController');
 
 // GET michaelangelo home page.
-router.get('/', michaelangelo_controller.index);
+router.get('/', michelangelo_controller.index);
 
 module.exports = router;

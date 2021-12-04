@@ -2,6 +2,15 @@ extends layout
 
 block content
   h1= title
-  p Welcome to #{title}
-  p #{data.stats}
+  p #{data.introQuote}
+  p -#{title}
+  p #{data.description}
   img(border="0" src="#{data.picture}") 
+  table 
+    thead 
+    tbody 
+      each stat in data.stats
+        tr 
+          p #{stat[0]} | #{stat[1]}
+
+
