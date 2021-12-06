@@ -1,5 +1,7 @@
+// export 'turtle.jade' for '/michelangelo'
 exports.index = function(req, res) {
 
+    // Declare the page's content
     const stats = {
         ninjutsu: ["Ninjutsu: ", "Mikey is the most agile of all his brothers; his training as a ninja helped to balance and improve this, but his skills in skateboarding and dancing also gives Mikey an edge that will often shock his brothers. Mikey is an extremely good fighter. He's got a great knowledge with ninjutsu, which is why he is a good fighter. He may have the most raw talent of the four, but he does not seem to have the skill or the inclination to develop it."],
         pranks: ["Pranks: ", "He refers to himself as the king of pranks. Since he the most funniest of his brothers and he hasn't shown to be wrong since he was able to show his pranking skills against his brothers like water balloons as he wants to prank them all and he was able to use his prank of water ballon to use against the tank of the truck."],
@@ -18,15 +20,6 @@ exports.index = function(req, res) {
     const picture = '/images/mikey.jpg';
     const introQuote = "Mikey here. I'm definitely the funnest of all my brothers. I love video games, skateboarding, pranking my brothers and duh, pizza!! Who does NOT like New York City Style Pizza? I mean, THEY'RE THE BEST!!! Speaking of pizza... I'm hungry.";
     const description = "Physically the smallest of the Turtles and the least mature. Mikey is easily distracted and enthusiastic about... well, pretty much everything. He's also extremely creative. He has a thousand ideas, and every now and then, one of them will be brilliant. This combination of creativity and lack of focus gives him a kind of 'flow' that the other Turtles cannot match. He's a social mutant and more than the others, pines to be part of the real world.";
-    const randomQuote = sayRandomQuote();
-    
-    const michelangelo_object = { stats, picture , introQuote, description, randomQuote };
-
-    res.render('turtle', { title: 'Michelangelo', data: michelangelo_object });
-    
-};
-
-function sayRandomQuote() {
     const quotes = [
         "Booyakasha!",
         "Cowabunga!",
@@ -87,7 +80,20 @@ function sayRandomQuote() {
         "Leo! Do the zippy-zappy thing NOW!",
         "Turtles were born to fly!"
     ];
+    const randomQuote = sayRandomQuote(quotes);
+    
+    // Create an object to pass as data
+    const michelangelo_object = { stats, picture , introQuote, description, randomQuote };
 
-    let num = Math.floor(Math.random() * (quotes.length - 0) ) + 0;
-    return quotes[num];
+    // Render page and pass data as variables
+    res.render('turtle', { title: 'Michelangelo', data: michelangelo_object });
+    
+};
+
+// Generates a random quote from an array
+function sayRandomQuote(arr) {
+    
+    let num = Math.floor(Math.random() * arr.length);
+    return arr[num];
+
 }

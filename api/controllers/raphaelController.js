@@ -1,5 +1,7 @@
+// export 'turtle.jade' for '/raphael'
 exports.index = function(req, res) {
 
+    // Declare the page's content
     const stats = {
         ninjutsu: ["Ninjutsu: ", "Like his brothers, he has a great sense of balance and agility. He can jump farther and higher than a human, as well as move quicker and more easily on narrow surfaces. He is the strongest fighter of the group (this is certainly true when training) Raphael has beaten his brothers including Donatello before in fights, both with and without weapons."],
         strength: ["Enhanced Strength: ", "He is the strongest turtle, lifting people over his head. He is also the most violent, and so he can deal harder blows - though this is not a question of strength, more of morals, his brothers would most likely not hit someone as hard as Raphael would. He was able to tackle Slash away from his brother Mikey. His greater strength may be do in part to his ferocious temper."],
@@ -13,15 +15,6 @@ exports.index = function(req, res) {
     const picture = '/images/raph.jpg';
     const introQuote = `"Name's Raph. If there's a brawl, count me in. Leo loves to plan, but me? I'd rather fight first and ask questions later. If any shellbrains try to mess with me and my brothers, they won't know what hit 'em! Oh yeah, they will... ME! you bad guys heard me! If you guys ever mess with me and my brothers, you'll get it! I know that Leo and I have been fighting a lot but... we're brothers and brothers do fight. But we protect each other and that's what counts most in my life."`;
     const description = `Raphael is the most violent of the four brothers. A straight-up brawler, he has very little patience for things like stealth, hiding in shadows, or keeping his voice down. While he's fiercely loyal to his brothers, he's also often the one giving them a hard time. Raphael is also the one most likely to strike out on his own when he feels slighted or underappreciated. His closest confidante was his pet turtle named Spike. Raphael's temper can get the better of him, causing him to get into situations over his head.`;
-    const randomQuote = sayRandomQuote();
-    
-    const raphael_object = { stats, picture, introQuote, description, randomQuote };
-
-    res.render('turtle', { title: 'Raphael', data: raphael_object });
-    
-};
-
-function sayRandomQuote() {
     const quotes = [
         "It LITERALLY hurts to listen to you sometimes!",
         "Still standing, huh? I'll fix that!",
@@ -109,7 +102,20 @@ function sayRandomQuote() {
         "YOU MONSTER!",
         "(To Splinter)Father?"
     ];
+    const randomQuote = sayRandomQuote(quotes);
+    
+    // Create an object to pass as data
+    const raphael_object = { stats, picture, introQuote, description, randomQuote };
 
-    let num = Math.floor(Math.random() * (quotes.length - 0) ) + 0;
-    return quotes[num];
+    // Render page and pass data as variables
+    res.render('turtle', { title: 'Raphael', data: raphael_object });
+    
+};
+
+// Generates a random quote from an array
+function sayRandomQuote(arr) {
+
+    let num = Math.floor(Math.random() * arr.length);
+    return arr[num];
+
 }
