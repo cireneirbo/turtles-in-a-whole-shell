@@ -1,3 +1,6 @@
+// Import libraries and project files
+const { sayRandomQuote } = require('../util/randomquote');
+
 // export 'turtle.jade' for '/michelangelo'
 exports.index = function(req, res) {
 
@@ -89,11 +92,3 @@ exports.index = function(req, res) {
     res.render('turtle', { title: 'Michelangelo', data: michelangelo_object });
     
 };
-
-// Generates a random quote from an array
-function sayRandomQuote(arr) {
-    
-    let num = Math.floor(Math.random() * arr.length);
-    return arr[num];
-
-}
