@@ -24,7 +24,7 @@ export class tmnt extends Component {
     return (
       <div className="tmnt">
         <header className="tmnt-header">
-          
+          <img src={logo} className="App-logo" alt="logo" />
         </header>
         <p className="tmnt-intro">{this.state.apiResponseTmnt}</p>
         <p>Hi</p>
