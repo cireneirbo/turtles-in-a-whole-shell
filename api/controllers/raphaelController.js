@@ -1,5 +1,5 @@
 // Import libraries and project files
-const { sayRandomQuote } = require('../util/randomquote');
+const { sayRandomQuote } = require('../util/randomQuote');
 
 // export 'turtle.jade' for '/raphael'
 exports.index = function(req, res) {
